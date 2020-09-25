@@ -1,0 +1,59 @@
+<h1>hello</h1>
+
+<form action="/api/numbers" method="POST">
+    add random list of numbers
+    <input type="hidden" name="array" value="{{ random(100) }},{{ random(100) }},{{ random(100) }}">
+    <input type="submit" name="submit">
+</form>
+
+
+
+<h2>liste</h2>
+<hr>
+{% for number in numbers %}
+    <p>list {{ number.id }}</p>
+    <p>{{ number.list|join(", ") }}</p>
+    <p>average: {{number.average}}</p>
+    <p>median: {{number.median}}</p>
+
+    <p><strong>add / remove value</strong></p>
+    <form action="/api/numbers/{{number.id}}" method="POST">
+        <label for="add">add value</label>
+        <input id="add" name="addNumber" type="number">
+        <input type="submit" name="adval">
+    </form>
+
+    <form action="/api/numbers/{{number.id}}" method="POST">
+        <label for="remove">remove value</label>
+        <input id="remove" name="removeNumber" type="number">
+
+        <input type="submit" name="rval">
+    </form>
+    
+    <p><strong>operation on all numbers</strong></p>
+    <p>add</p>
+    <form action="/api/numbers/{{number.id}}/add" method="POST">
+        <label for="amount">amount</label>
+        <input type="number" name="amount">
+        <input type="submit" name="opeadd">
+    </form>
+    <p>substract</p>
+    <form action="/api/numbers/{{number.id}}/substract" method="POST">
+        <label for="amount">amount</label>
+        <input type="number" name="amount">
+        <input type="submit" name="opesub">
+    </form>
+    <p>divide</p>
+    <form action="/api/numbers/{{number.id}}/divide" method="POST">
+        <label for="amount">amount</label>
+        <input type="number" name="amount">
+        <input type="submit" name="opediv">
+    </form>
+    <p>multiply</p>
+    <form action="/api/numbers/{{number.id}}/multiply" method="POST">
+        <label for="amount">amount</label>
+        <input type="number" name="amount">
+        <input type="submit" name="opemul">
+    </form>
+    <hr>
+{% endfor %}
