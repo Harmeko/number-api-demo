@@ -7,3 +7,5 @@
 5. php bin/console doctrine:database:create
 6. php bin/console doctrine:schema:update --force
 7. php bin/console server:run
+8. aller sur 127.0.0.1:8000/api
+9. commencer a ajouter des listes
