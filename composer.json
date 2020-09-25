@@ -17,10 +17,10 @@
         "symfony/property-access": "5.1.*",
         "symfony/serializer": "5.1.*",
         "symfony/twig-bundle": "5.1.*",
-        "symfony/yaml": "5.1.*"
+        "symfony/yaml": "5.1.*",
+        "symfony/maker-bundle": "^1.21"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.21"
     },
     "config": {
         "optimize-autoloader": true,
